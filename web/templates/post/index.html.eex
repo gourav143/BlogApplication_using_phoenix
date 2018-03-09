@@ -1,0 +1,26 @@
+<h2>My Blogs</h2>
+
+<%= for post <- @posts do %>
+    
+
+
+<section class="panel b-blue" id="1">
+  <article class="panel__wrapper">
+    <div class="panel__content">
+      <h1 class="panel__headline"><i class="fa fa-camera-retro"></i>&nbsp;<%=post.title%></h1>
+      <div class="panel__block"></div>
+      <p><%= post.body %></p>
+      <div style="float: right;">
+      </div>
+    </div>
+  </article>
+</section>
+
+
+<% end %>
+<%= link "Create Blog", to: post_path(@conn, :new)%>
+  
+
+
+
+

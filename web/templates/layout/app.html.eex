@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+     <title>My Project!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/style.css") %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <nav class="nav">
+  <div class="burger">
+    <div class="burger__patty"></div>
+  </div>
+
+  <ul class="nav__list">
+    <li class="nav__item">
+      <a href="" class="nav__link c-blue"><%= link "Home", to: page_path(@conn, :index), class: "nav__link c-blue fa fa-bolt"%></a>
+    </li>
+    <li class="nav__item">
+      <a href="" class="nav__link c-yellow scrolly"><span><%= if @current_user do 
+      link "New Post", to: post_path(@conn, :new), class: "nav__link c-green fa fa-bolt"  
+
+    else
+       
+      link "Blog Posts", to: post_path(@conn, :index), class: "nav__link c-green fa fa-bolt"
+    end
+%></span></a>
+    </li>
+    
+<%= if @current_user do %>
+  <li class="nav__item">
+      <a href="" class="nav__link c-green">
+      <%= link "Show My Blogs", to: post_path(@conn, :index), class: "nav__link c-green fa fa-bolt" %>
+
+    <% else %>
+        
+    <%end%>
+</a>
+    </li>
+    <li class="nav__item">
+      <a href="#3" class="nav__link c-red">account</a>
+    </li>
+   <li class="nav__item">
+      <a href="" class="nav__link c-green"><i class="fa fa-paper-plane"></i>
+  
+<%= if @current_user do 
+      link "Log out", to: session_path(@conn, :delete, @current_user),
+method: "delete", class: "nav__link c-green fa fa-bolt"  
+
+    else
+       link "Log in", to: session_path(@conn, :new), class: "nav__link c-green fa fa-bolt" 
+    end
+%></a>
+    </li>
+  </ul>
+</nav>
+      
+      </header>
+      
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+      </div>
+ <main>
+    Content
+  </main>
+<!--Some of this HTML is directly from Pavilion.  You can change it to whatever you want if you want to mimic this design.-->
+<footer class="flex-rw">
+  
+  <ul class="footer-list-top">
+    <li>
+      <h4 class="footer-list-header">About Us</h4></li>
+    <li><a href='' class="generic-anchor footer-list-anchor" itemprop="significantLink">GET TO KNOW US</a></li>
+    <li><a href='/promos.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">PROMOS</a></li>
+
+    
+
+    <li><a href='/shop/about-show-schedule' class="generic-anchor footer-list-anchor" itemprop="significantLink">EVENTS</a></li>
+  </ul>
+  <ul class="footer-list-top">
+    <li>
+      <h4 class="footer-list-header">Our Team</h4></li>
+
+
+    <li><a href='/Angels/cat/id/70' class="generic-anchor footer-list-anchor">Gaurav Ambildhuke</a></li>
+    <li><a href='/Home-Decor/cat/id/64' class="generic-anchor footer-list-anchor">Amit Bule</a></li>
+    <li><a href='/Mugs/cat/id/32' class="generic-anchor footer-list-anchor">Kshitij Chaudhari</a></li>
+    <li><a href='/Pet-Lover/cat/id/108' class="generic-anchor footer-list-anchor">Smitha Khandre</a></li>
+    
+  </ul>
+  <ul class="footer-list-top">
+    <li id='help'>
+      <h4 class="footer-list-header">Contact Us</h4></li>
+    <li><a href='/shop/about-contact' class="generic-anchor footer-list-anchor" itemprop="significantLink"><strong>gauravambildhuke5@gmail.com</strong></a></li>
+    <li><a href='/faq.html' class="generic-anchor footer-list-anchor" itemprop="significantLink">+91-9075208929</a></li>
+    
+  </ul>
+
+</footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="<%= static_path(@conn, "/js/index.js") %>"></script>
+  </body>
+</html>

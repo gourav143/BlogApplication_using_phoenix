@@ -1,0 +1,11 @@
+
+
+<section class="panel b-grey" id="1">
+  <article class="panel__wrapper">
+    <div class="panel__content">
+      <h1 class="panel__headline"><i class="fa fa-camera-retro"></i>&nbsp;<%= link "Create Post", to: post_path(@conn, :new), class: "panel__headline" %></h1>
+      <div class="panel__block"></div>
+      <p></p>
+    </div>
+  </article>
+</section>

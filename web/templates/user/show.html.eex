@@ -1,0 +1,19 @@
+<h2>My Profile</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </li>
+
+ 
+ 
+</ul>
+
+<span><%= link "Edit Profile", to: user_path(@conn, :edit, @user) %></span>
